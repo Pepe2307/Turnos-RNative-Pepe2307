@@ -1,13 +1,7 @@
-/** Better comments test - @param miParametro El resto */
-    //todo Naranja - to do
-    //* Remarcar
-    //! Alerta
-    //? Interrogante
-     //// Tachado ////
-
-//! *************************************** Imports ***************************************/
 import { Button, FlatList, ImageBackground, Modal, Pressable, StyleSheet, Text, TextInput, TouchableOpacity, View, onPress } from 'react-native';
 
+import { BottomTab } from './src/navigation/BottomTab';
+import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 
@@ -25,172 +19,15 @@ const image2 = require('./assets/images/japan1.jpg');
 //! *************************************** Aplicacion ***************************************/
 //todo *********************    Funciones    *******************/
 export default function App() {
-    //******************     Lista de compra     ******************/ 
-    const [textItem, setTextItem] = useState('')
-    const [itemList, setItemList] = useState([])
-
-    const onHandlerChangeItem = (text) => setTextItem(text)
-    const onHandlerAddItem = () => {
-        setItemList(currentItems => [...currentItems, { id: Date.now(), value: textItem}])
-        /* setItemList({...itemList, id: Math.random()*10, value: textItem}) */
-        setTextItem('')
-    }
-    
-
-    //******************     MODAL     ******************/ 
-    const [itemSelected, setItemSelected] = useState({})
-    const [modalVisible, setModalVisible] = useState(false)
-
-    const onHandlerDeleteItem  = id => {
-        setItemList(currentItems => currentItems.filter(item => item.id !== id))
-        setItemSelected({})
-        setModalVisible(!modalVisible)
-    }
-    const onHandlerModal = id => {
-        setItemSelected(itemList.find(item => item.id === id))
-        setModalVisible(!modalVisible)
-    }
-
-  //todo *********************    APP    *******************/
   return (
     <View style={styles.screen}>
 
-        <ImageBackground source={image} resizeMode="cover" style={styles.fondo}>
+        
+            <NavigationContainer>
+                <BottomTab></BottomTab>
+            </NavigationContainer>
 
-            {/* //* Mi Modal (Habia puesto mal el {true} de transparent) */}
-            <Modal
-            animationType='fade'
-            transparent={true}
-            visible={modalVisible}>
-
-                <View style={styles.modal_Container}>
-                    <View style={styles.modal_View}>
-
-                        <View>
-                            <Text style={styles.modal_titulo}> {itemSelected.value} </Text>
-                        </View>
-
-                        <View>
-                            <Text style={styles.modal_confirmacion}> Seguro que desea borrar este objeto de la lista? </Text>
-                        </View>
-
-                        {/* <View style={styles.modal_mensaje_container}>
-                            <Text style={styles.modal_mensaje_item}>{itemSelected.value}</Text>
-                        </View> */}
-                        
-                        <View style={styles.modal_boton}>
-                            <Button onPress={() =>onHandlerDeleteItem(itemSelected.id)} title='Confirmar' style={styles.busqueda_boton}/>
-                        </View>
-
-                        <View style={styles.modal_boton}>
-                            <Button onPress={() =>onHandlerDeleteItem(itemSelected.id)} title='Cancelar' style={styles.busqueda_boton}/>
-                        </View>
-
-                    </View>
-                </View>
-            </Modal>
-
-
-            {/* //* Busqueda de Items */}
-            <View style={styles.container_busqueda}>
-
-                <TextInput placeholder="Buscar Item..."
-                value={textItem}
-                onChangeText={onHandlerChangeItem}
- 
-                placeholderTextColor='white'
-                style={styles.busqueda_texto}
-                />
-                
-                <Button title='Add'
-                style={styles.boton_para_hacer} onPress={onHandlerAddItem}
-                disabled={textItem.length < 1 ? true : false}/>
-                
-                {/* <Pressable style={styles.button} onPress={onHandlerAddItem}>
-                    <Text style={styles.text}>{"Buy"}</Text>
-                </Pressable> */}
-               
-            </View>
-
-
-            {/* //*Lista de Compras/Items */}
-            <Text style={styles.titulo}>
-                    Lista de compra:
-            </Text>
-
-            <View style={styles.container_lista}>
-
-                {/* Forma 1 de hacer la lista con un .map
-                 <View>
-                    {itemList.map(item => 
-                        <View style={styles.datos_item} key={item.id}>
-                            <Text style={styles.texto_items}>Objeto: {item.value}</Text>
-                            <Text style={styles.texto_items}>Id: {item.id}</Text>
-                            <Button title='Add' onPress={()=>{}}style={styles.estilo_boton}/>
-                        </View>
-                    )}
-                </View> */}
-
-                <FlatList /* style={styles.lista_compra} */
-                contentContainerStyle={styles.lista_compra}/* //* Esta forma da menos problemas? */
-                    data={itemList}
-                    renderItem={data => (
-                        <View style={styles.datos_item}>
-                            <Text style={styles.texto_items}>
-                                {data.item.value} 
-                            </Text>
-
-                            <Button title='Quitar Item' onPress={() => onHandlerModal(data.item.id)}
-                            style={styles.estilo_boton}/>
-                            
-                            {/* A determinar que Boton queda mejor: */}
-                            {/* <TouchableOpacity onPress={() => onHandlerModal(data.item.id)}
-                            style={styles.estilo_boton}>
-                                <Text style={styles.texto_items}>
-                                    Quitar Item
-                                </Text>
-                            </TouchableOpacity>
-                            */}                    
-                        </View>
-                    )}
-                    keyExtractor={item => item.id}
-                    showsVerticalScrollIndicator={true}
-                    indicatorStyle='black'
-                />
-
-                {/* <FlatList style={styles.lista_compra}
-                    data={itemList}
-                    renderItem={data => (
-                        <TouchableOpacity onPress={() => onHandlerModal(data.item.id)}
-                        style={styles.datos_item}>
-                            <Text style={styles.texto_items}>
-                                {data.item.value}
-                            </Text>
-                        </TouchableOpacity>
-                    )}
-                    keyExtractor={item => item.id}
-                    showsVerticalScrollIndicator={true}
-                    indicatorStyle='black'
-                /> */}
-
-
-                <View style={styles.datos_item}>
-                    <Text style={styles.texto_items}>
-                        Objeto prueba 1
-                    </Text>
-                    <Button title='Add' onPress={()=>{}}style={styles.estilo_boton}/>
-                </View>
-                
-            </View>
-            
-        </ImageBackground>
-
-
-        <ImageBackground source={image2}>
-            <Text style={styles.texto_items}>
-                <Button title='Segunda pagina =>' onPress={()=>{}}style={styles.estilo_boton}/>
-            </Text>
-        </ImageBackground>
+        
         
         <StatusBar style="auto" />
 
