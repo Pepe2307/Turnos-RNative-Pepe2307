@@ -5,30 +5,16 @@ import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 
-/* const image = require('./assets/imagenes/japan1.jpg') */           //Metodo 1
-const image = require('./assets/images/glass.jpg');        
-
-/* export const image = require('./assets/imagenes/japan1.jpg'); */   //Metodo 2
-
-//// const image = { uri: "https://reactjs.org/logo-og.png"};  //Metodo 3
-const image2 = require('./assets/images/japan1.jpg');
-
-
-
-
 //! *************************************** Aplicacion ***************************************/
 //todo *********************    Funciones    *******************/
 export default function App() {
   return (
     <View style={styles.screen}>
 
-        
             <NavigationContainer>
                 <BottomTab></BottomTab>
             </NavigationContainer>
 
-        
-        
         <StatusBar style="auto" />
 
     </View>
