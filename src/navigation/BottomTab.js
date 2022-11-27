@@ -3,7 +3,7 @@ import { Button, Image, Platform, StyleSheet, Text, TouchableOpacity, View } fro
 import { COLORS } from "../../constants/colors";
 import HomeScreen from "../screens/HomeScreen";
 import React from "react";
-import SettingsScreen1 from "../screens/SettingsScreen";
+import SettingsHome from "../screens/SettingsHome";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 const Logo = () => {
@@ -22,7 +22,7 @@ export const BottomTab = () => {
         <Tab.Navigator
         
         screenOptions={{
-            /* headerShown: false, */
+            headerShown: false,
             // headerTitle:(props) => <Logo {...props}/>,
             
             headerStyle:{
@@ -37,15 +37,73 @@ export const BottomTab = () => {
     
     
             
-            tabBarIcon: (props) => <Logo {...props}/>,
+            // tabBarIcon: (props) => <Logo {...props}/>,
             tabBarShowLabel:false,
             tabBarStyle: styles.tabBar,
             }}
         >
-            {/* <Tab.Screen name = 'Home' component={ HomeScreen } > </Tab.Screen> */}
+            
             <Tab.Screen name="Home" component={HomeScreen}
-            options={{ /* headerTitle: (props) => <Logo {...props} /> */ title: 'Home Menu'}}/>
-            <Tab.Screen name="Settings" component={SettingsScreen1} />
+            options={{
+                tabBarIcon: ({focused}) => (
+                    <View
+                    style={{
+                        alignItems:'center',
+                        justifyContent:'center',
+                        }}>
+                        <Image
+                            source={require('../../assets/images/rina_icon.png')}
+                            resizeMode='contain'
+                            style={{
+                                width:30,
+                                height:30,
+                                tintColor: focused ? COLORS.Red_Custom : COLORS.Grey_Custom
+                            }}
+                        />
+
+                        <Text
+                            style={{
+                                color: focused ? COLORS.Red_Custom : COLORS.Grey_Custom,
+                                fontSize:12,
+                            }}>
+                            Home Turnos
+                        </Text>
+                        
+                    </View>
+                ),
+                title:'Home Turnos'
+            }}/>
+
+            <Tab.Screen name="Settings" component={SettingsHome} options={{
+                tabBarIcon: ({focused}) => (
+                    <View
+                    style={{
+                        alignItems:'center',
+                        justifyContent:'center',
+                        }}>
+                        <Image
+                            source={require('../../assets/images/configuration.png')}
+                            resizeMode='contain'
+                            style={{
+                                width:30,
+                                height:30,
+                                tintColor: focused ? COLORS.Red_Custom : COLORS.Grey_Custom
+                            }}
+                        />
+
+                        <Text
+                            style={{
+                                color: focused ? COLORS.Red_Custom : COLORS.Grey_Custom,
+                                fontSize:12,
+                            }}>
+                            Configuracion
+                        </Text>
+                        
+                    </View>
+                ),
+                title:'Home Turnos'
+            }}/>
+            
         </Tab.Navigator>
     )
 
