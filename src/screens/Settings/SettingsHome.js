@@ -1,8 +1,8 @@
 import { Button, Text, View } from "react-native";
 
 import React from "react";
-import Settings1 from "./Settings/Settings1";
-import Settings2 from "./Settings/Settings2";
+import Settings1 from "./Settings1";
+import Settings2 from "./Settings2";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useNavigation } from "@react-navigation/native";
 

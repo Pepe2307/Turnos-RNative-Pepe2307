@@ -3,7 +3,7 @@ import { Button, Image, Platform, StyleSheet, Text, TouchableOpacity, View } fro
 import { COLORS } from "../../constants/colors";
 import HomeScreen from "../screens/HomeScreen";
 import React from "react";
-import SettingsHome from "../screens/SettingsHome";
+import SettingsHome from "../screens/Settings/SettingsHome";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 const Logo = () => {
