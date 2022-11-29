@@ -294,7 +294,9 @@ const styles = StyleSheet.create({
         color:'black',
         textAlign:'center',
         margin:20,
-        fontSize:30
+        fontSize:30,
+        fontFamily: 'TitilliumWeb-Regular'
+         
     },
     estilo_boton:{
         backgroundColor:'red',

@@ -1,4 +1,4 @@
-import { Button, FlatList, ImageBackground, Modal, Pressable, StyleSheet, Text, TextInput, TouchableOpacity, View, onPress } from 'react-native';
+import {StyleSheet, View,} from 'react-native';
 
 import { BottomTab } from './src/navigation/BottomTab';
 import { NavigationContainer } from '@react-navigation/native';
@@ -6,7 +6,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 
 //! *************************************** Aplicacion ***************************************/
-//todo *********************    Funciones    *******************/
+
 export default function App() {
   return (
     <View style={styles.screen}>
@@ -20,13 +20,16 @@ export default function App() {
     </View>
   );
 }
+
+
 //! *************************************** Estilos ***************************************/
 const styles = StyleSheet.create({
 
     /*//* PANTALLA GENERAL */
     screen:{
         flex:1,
-        justifyContent: 'center' /* funciona? */
+        justifyContent: 'center', /* funciona? */
+        
         },
     fondo: {
         flex: 1,
