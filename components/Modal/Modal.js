@@ -2,7 +2,7 @@ import {Button, Modal, StyleSheet, Text, View} from 'react-native'
 
 export default function CustomModal (parametros_Modal) {
 
-    const {modalVisible, itemSelected, onHandlerDeleteItem} = parametros_Modal
+    const {modalVisible, itemSelected, onHandlerDeleteItem, onHandlerCloseModal} = parametros_Modal
 
     
     return (
@@ -31,7 +31,7 @@ export default function CustomModal (parametros_Modal) {
                         </View>
 
                         <View style={styles.modal_boton}>
-                            <Button onPress={() =>onHandlerDeleteItem(itemSelected.id)} title='Cancelar' style={styles.busqueda_boton}/>
+                            <Button onPress={() =>onHandlerCloseModal(itemSelected.id)} title='Cancelar' style={styles.busqueda_boton}/>
                         </View>
 
                     </View>
@@ -82,6 +82,7 @@ const styles = StyleSheet.create({
     modal_confirmacion:{
         color: 'white',
         fontSize: 20,
+        margin:10
     },
     modal_mensaje_container:{
         backgroundColor: 'red',
@@ -94,6 +95,6 @@ const styles = StyleSheet.create({
         fontSize: 20,
     },
     modal_boton:{
-
+        margin:10
     },
 });

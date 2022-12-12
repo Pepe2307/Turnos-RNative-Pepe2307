@@ -2,7 +2,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 import React from 'react'
 
-const BreadItem = ({ item, onSelected }) => {
+const MangaItem = ({ item, onSelected }) => {
     return (
         <TouchableOpacity onPress={() => onSelected(item)}>
             <View style={styles.breadItem}>
@@ -34,4 +34,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default BreadItem
+export default MangaItem

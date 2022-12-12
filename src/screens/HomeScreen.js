@@ -33,6 +33,9 @@ const HomeScreen = () => {
         setItemSelected({})
         setModalVisible(!modalVisible)
     }
+    const onHandlerCloseModal  = id => {
+        setModalVisible(!modalVisible)
+    }
     const onHandlerModal = id => {
         setItemSelected(itemList.find(item => item.id === id))
         setModalVisible(!modalVisible)
@@ -52,6 +55,7 @@ const HomeScreen = () => {
             modalVisible={modalVisible}
             itemSelected={itemSelected}
             onHandlerDeleteItem={onHandlerDeleteItem}
+            onHandlerCloseModal={onHandlerCloseModal}
             />
 
 
@@ -101,7 +105,6 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     
-
     /*//* EXTRAS / A BORRAR */
       text: {
         fontSize: 16,
