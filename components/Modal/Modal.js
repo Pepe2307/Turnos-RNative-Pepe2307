@@ -7,36 +7,36 @@ export default function CustomModal (parametros_Modal) {
     
     return (
         <Modal
-        animationType='fade'
-        transparent={true}
-        visible={modalVisible}>
+            animationType='fade'
+            transparent={true}
+            visible={modalVisible}>
 
-            <View style={styles.modal_Container}>
-                <View style={styles.modal_View}>
+                <View style={styles.modal_Container}>
+                    <View style={styles.modal_View}>
 
-                    <View>
-                        <Text style={styles.modal_titulo}> {itemSelected.value} </Text>
+                        <View>
+                            <Text style={styles.modal_titulo}> {itemSelected.value} </Text>
+                        </View>
+
+                        <View>
+                            <Text style={styles.modal_confirmacion}> Seguro que desea borrar este objeto de la lista? </Text>
+                        </View>
+
+                        {/* <View style={styles.modal_mensaje_container}>
+                            <Text style={styles.modal_mensaje_item}>{itemSelected.value}</Text>
+                        </View> */}
+                        
+                        <View style={styles.modal_boton}>
+                            <Button onPress={() =>onHandlerDeleteItem(itemSelected.id)} title='Confirmar' style={styles.busqueda_boton}/>
+                        </View>
+
+                        <View style={styles.modal_boton}>
+                            <Button onPress={() =>onHandlerDeleteItem(itemSelected.id)} title='Cancelar' style={styles.busqueda_boton}/>
+                        </View>
+
                     </View>
-
-                    <View>
-                        <Text style={styles.modal_confirmacion}> Seguro que desea borrar este objeto de la lista? </Text>
-                    </View>
-
-                    {/* <View style={styles.modal_mensaje_container}>
-                        <Text style={styles.modal_mensaje_item}>{itemSelected.value}</Text>
-                    </View> */}
-                    
-                    <View style={styles.modal_boton}>
-                        <Button onPress={() =>onHandlerDeleteItem(itemSelected.id)} title='Confirmar' style={styles.busqueda_boton}/>
-                    </View>
-
-                    <View style={styles.modal_boton}>
-                        <Button onPress={() =>onHandlerDeleteItem(itemSelected.id)} title='Cancelar' style={styles.busqueda_boton}/>
-                    </View>
-
                 </View>
-            </View>
-        </Modal>
+            </Modal>
     )
 }
 
