@@ -16,4 +16,19 @@ export const CATEGORIES = [
         title:'Accesorios',
         color: COLORS.White_Gray_Custom
     },
+    {
+        id:4,
+        title:'Accesorios',
+        color: COLORS.Red_Custom
+    },
+    {
+        id:5,
+        title:'Accesorios',
+        color: COLORS.Blue_Custom
+    },
+    {
+        id:6,
+        title:'Accesorios',
+        color: COLORS.Red_Custom
+    },
 ]

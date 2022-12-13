@@ -5,13 +5,6 @@ import { COLORS } from '../../../constants/colors';
 import Category_item from '../../../components/Category-item/Category_item';
 import React from 'react';
 
-/* import { styles } from './styles'; */
-
-/* import { CategoryItem } from '../../../components/Category-item/category-item'*/
-/* import { Category_Item } from '../../../components/Category-item/Category_item' */
-/* import { CategoryItem } from '../../components'; */
-
-
 const Categories = ({ navigation, route }) => {
 
   const onSelected = (item) => {

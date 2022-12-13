@@ -23,7 +23,7 @@ export const BottomTab = () => {
         <Tab.Navigator
         
         screenOptions={{
-            headerShown: false,
+            headerShown: true,
             // headerTitle:(props) => <Logo {...props}/>,
             
             headerStyle:{
@@ -75,36 +75,6 @@ export const BottomTab = () => {
                 title:'Home Turnos'
             }}/>
 
-            <Tab.Screen name="Settings" component={SettingsHome} options={{
-                tabBarIcon: ({focused}) => (
-                    <View
-                    style={{
-                        alignItems:'center',
-                        justifyContent:'center',
-                        }}>
-                        <Image
-                            source={require('../../assets/images/configuration.png')}
-                            resizeMode='contain'
-                            style={{
-                                width:30,
-                                height:30,
-                                tintColor: focused ? COLORS.Red_Custom : COLORS.Grey_Custom
-                            }}
-                        />
-
-                        <Text
-                            style={{
-                                color: focused ? COLORS.Red_Custom : COLORS.Grey_Custom,
-                                fontSize:12,
-                            }}>
-                            Configuracion
-                        </Text>
-                        
-                    </View>
-                ),
-                title:'Home Turnos'
-            }}/>
-
 
             <Tab.Screen name="Categorias" component={Categories}
                 options={{
@@ -136,6 +106,40 @@ export const BottomTab = () => {
                     ),
                     title:'Categorias'
             }}/>
+
+
+            <Tab.Screen name="Settings" component={SettingsHome} /* options={{ */
+                options={({ route }) => ({
+                tabBarIcon: ({focused}) => (
+                    <View
+                    style={{
+                        alignItems:'center',
+                        justifyContent:'center',
+                        }}>
+                        <Image
+                            source={require('../../assets/images/configuration.png')}
+                            resizeMode='contain'
+                            style={{
+                                width:30,
+                                height:30,
+                                tintColor: focused ? COLORS.Red_Custom : COLORS.Grey_Custom
+                            }}
+                        />
+
+                        <Text
+                            style={{
+                                color: focused ? COLORS.Red_Custom : COLORS.Grey_Custom,
+                                fontSize:12,
+                            }}>
+                            Configuracion
+                        </Text>
+                        
+                    </View>
+                ),
+                /* title:'Home Turnos' */
+                title: route.params.title,
+            })}/>
+
             
         </Tab.Navigator>
     )
