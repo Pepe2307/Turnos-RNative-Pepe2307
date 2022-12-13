@@ -1,6 +1,7 @@
 import { Button, Image, Platform, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 import { COLORS } from "../../constants/colors";
+import Categories from "../screens/Categories/CategoriesScreen";
 import HomeScreen from "../screens/HomeScreen";
 import React from "react";
 import SettingsHome from "../screens/Settings/SettingsHome";
@@ -102,6 +103,38 @@ export const BottomTab = () => {
                     </View>
                 ),
                 title:'Home Turnos'
+            }}/>
+
+
+            <Tab.Screen name="Categorias" component={Categories}
+                options={{
+                    tabBarIcon: ({focused}) => (
+                        <View
+                        style={{
+                            alignItems:'center',
+                            justifyContent:'center',
+                            }}>
+                            <Image
+                                source={require('../../assets/images/rina_icon.png')}
+                                resizeMode='contain'
+                                style={{
+                                    width:30,
+                                    height:30,
+                                    tintColor: focused ? COLORS.Red_Custom : COLORS.Grey_Custom
+                                }}
+                            />
+
+                            <Text
+                                style={{
+                                    color: focused ? COLORS.Red_Custom : COLORS.Grey_Custom,
+                                    fontSize:12,
+                                }}>
+                                Categorias
+                            </Text>
+                            
+                        </View>
+                    ),
+                    title:'Categorias'
             }}/>
             
         </Tab.Navigator>

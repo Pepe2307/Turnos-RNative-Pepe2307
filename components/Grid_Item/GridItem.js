@@ -1,19 +1,12 @@
-import {
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View
-} from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 import React from 'react'
 
 const GridItem = ({ item, onSelected}) => {
     return (
         <View style={styles.gridItem}>
-            <TouchableOpacity
-                onPress={() => onSelected(item)}
-                style={{...styles.container, backgroundColor: item.color}}
-            >
+            <TouchableOpacity onPress={() => onSelected(item)}
+            style={{...styles.container, backgroundColor: item.color}}>
                 <View>
                     <Text style={styles.title}>{item.title}</Text>
                 </View>
